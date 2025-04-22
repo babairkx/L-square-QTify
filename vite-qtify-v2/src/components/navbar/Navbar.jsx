@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../button/Button";
 import Logo from "../logo/Logo";
-import Search from "../Search/Search";
+import Search from "../search/Search";
 import styles from "./Navbar.module.css";
 
 function Navbar({ searchData }) {
