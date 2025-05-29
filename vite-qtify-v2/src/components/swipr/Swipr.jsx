@@ -42,7 +42,7 @@ const Swipr = ({ dta }) => {
             <Card
               image={ele.image}
               follow={ele.follows}
-              songType={ele.slug}
+              songType={ele.title}
             ></Card>
           </SwiperSlide>
         ))}
