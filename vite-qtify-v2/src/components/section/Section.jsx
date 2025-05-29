@@ -37,7 +37,7 @@ const Section = ({ albumType, data }) => {
                   <Card
                     image={ele.image}
                     follow={ele.follows}
-                    songType={ele.slug}
+                    songType={ele.title}
                   ></Card>
                 </Grid>
               ))}
