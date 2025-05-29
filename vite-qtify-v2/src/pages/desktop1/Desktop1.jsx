@@ -4,6 +4,7 @@ import Hero from "../../components/hero/Hero";
 // import TrialImage from "../../assets/trial_pic.jpg";
 import Section from "../../components/section/Section";
 import { fetchTopAlbums } from "../../api/Api";
+import { fetchNewAlbums } from "../../api/Api";
 
 const Desktop1 = () => {
   // return <Hero />;
@@ -16,24 +17,38 @@ const Desktop1 = () => {
   //     .catch((error) => console.error(error));
   // }, []);
   const [topAlbumData, setTopAlbumData] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loadingTop, setLoadingTop] = useState(false);
+  const [newAlbumData, setNewAlbumData] = useState(null);
+  const [loadingNew, setLoadingNew] = useState(false);
   useEffect(() => {
     const loadData = async () => {
       try {
         const result = await fetchTopAlbums();
         setTopAlbumData(result);
-        setLoading(true);
+        setLoadingTop(true);
       } catch (err) {
         console.error(err);
       }
     };
     loadData();
   }, []);
-
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const result = await fetchNewAlbums();
+        setNewAlbumData(result);
+        setLoadingNew(true);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    loadData();
+  }, []);
   return (
     <>
       <Hero />
-      {loading ? <Section albumType="Top Albums" data={topAlbumData} /> : null}
+      {loadingTop && <Section albumType="Top Albums" data={topAlbumData} />}
+      {loadingNew && <Section albumType="New Albums" data={newAlbumData} />}
     </>
   );
 };
