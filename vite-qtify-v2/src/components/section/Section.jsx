@@ -4,7 +4,7 @@ import { Grid, Box } from "@mui/material";
 import Card from "../../components/card/Card";
 import Swipr from "../../components/swipr/Swipr";
 
-const Section = ({ albumType, data }) => {
+const Section = ({ albumType, data, show }) => {
   const [toggle, setToggle] = useState(false);
   return (
     <>
@@ -16,7 +16,7 @@ const Section = ({ albumType, data }) => {
             setToggle(!toggle);
           }}
         >
-          {!toggle ? "Show All" : "Collapse"}
+          {!show ? null : !toggle ? "Show All" : "Collapse"}
         </p>
       </div>
       {toggle ? (
@@ -30,6 +30,7 @@ const Section = ({ albumType, data }) => {
                 backgroundColor: "#121212",
                 justifyContent: "center",
                 Height: "100%",
+                paddingBottom: "20px",
               }}
             >
               {data.map((ele) => (

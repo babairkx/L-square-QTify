@@ -19,6 +19,8 @@ const Swipr = ({ dta }) => {
         width: "100%",
         padding: "0 40px",
         backgroundColor: "#121212",
+        paddingBottom: "20px",
+        paddingTop: "20px",
       }}
     >
       <Swiper
@@ -43,6 +45,7 @@ const Swipr = ({ dta }) => {
               image={ele.image}
               follow={ele.follows}
               songType={ele.title}
+              likes={ele.likes}
             ></Card>
           </SwiperSlide>
         ))}
